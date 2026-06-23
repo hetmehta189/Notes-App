@@ -2,12 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Fetch the database URL from Render's environment, fallback to local MySQL for local testing
 db_url = os.environ.get('DATABASE_URL', 'mysql+pymysql://root:Hetm189@localhost/Notes_App')
 
-# Render's Postgres URLs start with "postgres://", but SQLAlchemy requires "postgresql://"
+# Render's Postgres URLs start with "postgres://", but SQLAlchemy requires "postgresql://"`
 if db_url and db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
 
