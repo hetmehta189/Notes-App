@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Note | Notes App
+{% endblock %}
+
+{% block body %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <h2 class="fw-bold mb-4">
+                    Edit Note
+                </h2>
+
+                <form method="POST">
+
+                    <div class="mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Title
+                        </label>
+
+                        <input
+                            type="text"
+                            name="title"
+                            class="form-control"
+                            value="{{ note.title }}"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+                            Content
+                        </label>
+
+                        <textarea
+                            name="content"
+                            rows="6"
+                            class="form-control"
+                            required
+                        >{{ note.content }}</textarea>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success">
+                        Update Note
+                    </button>
+
+                    <a href="{{ url_for('home') }}"
+                       class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
